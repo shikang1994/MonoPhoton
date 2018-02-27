@@ -85,6 +85,8 @@ protected:
     TTree* _evtdata;
     
     struct EVTFILLDATA {
+        
+        // PFO
         int    evt ;       // event number
         int    npfos ;     // # of PFOs
         float  pfo_e[NMAX_PFOS];
@@ -113,6 +115,22 @@ protected:
         float  pfo_lcal_e[NMAX_PFOS];
         float  pfo_lhcal_e[NMAX_PFOS];
         float  pfo_bcal_e[NMAX_PFOS];
+        
+        // Gamma
+        int    ngammas ;
+        float  pfo_gamma_e[NMAX_PFOS];
+        float  pfo_gamma_px[NMAX_PFOS];
+        float  pfo_gamma_py[NMAX_PFOS];
+        float  pfo_gamma_pz[NMAX_PFOS];
+        float  pfo_gamma_phi[NMAX_PFOS];
+        float  pfo_gamma_theta[NMAX_PFOS];
+        
+        float  mcr_gamma_e[NMAX_PFOS];
+        float  mcr_gamma_px[NMAX_PFOS];
+        float  mcr_gamma_py[NMAX_PFOS];
+        float  mcr_gamma_pz[NMAX_PFOS];
+        float  mcr_gamma_phi[NMAX_PFOS];
+        float  mcr_gamma_theta[NMAX_PFOS];
         
         // MC Relation
         int    nmcr[NMAX_PFOS];

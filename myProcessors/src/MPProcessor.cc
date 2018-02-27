@@ -210,6 +210,7 @@ void MPProcessor::processEvent( LCEvent * evt ) {
             _data.pfo_pdg[i]   = p->getType();
             
             // fill first track info
+            bool isTrkGamma = false;
             _data.pfo_ntrk[i]  = trkvec.size();
             if (trkvec.size()>0) {
                 const Track* trk = trkvec[0];
@@ -221,9 +222,11 @@ void MPProcessor::processEvent( LCEvent * evt ) {
                 _data.pfo_d0sig[i] = trk->getD0()/sqrt(trk->getCovMatrix()[0]);
                 _data.pfo_z0sig[i] = trk->getZ0()/sqrt(trk->getCovMatrix()[9]);
             }
+            if (trkvec.size() == 0) isTrkGamma = true; // gamma track hit
             
             // fill sum of cluster info
             int nclrs = clusvec.size();
+            bool isCalGamma = false;
             _data.pfo_nclus[i] = nclrs;
             if (clusvec.size()>0) {
                 float xsum = 0.;
@@ -262,6 +265,25 @@ void MPProcessor::processEvent( LCEvent * evt ) {
                 _data.pfo_cal_z[i] = zsum / nclrs;
                 
             }// end of cluster if
+            if(_data.pfo_ecal_e[i]>8 && _data.pfo_hcal_e[i]==0) isCalGamma = true; // gamma cal hit
+            
+            
+            // gamma selection
+            bool isNotCharged = false;
+            if(_data.pfo_chrg[i] == 0) isNotCharged = true;
+            
+            if(isNotCharged && isCalGamma){
+                _data.pfo_gamma_e[i] = _data.pfo_e[i];
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+            
             
             //pid info
             if (pidvec.size()>0){
