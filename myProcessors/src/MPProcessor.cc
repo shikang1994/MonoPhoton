@@ -1,5 +1,6 @@
 #include "MPProcessor.h"
 #include <iostream>
+#include <vector>
 
 #include <EVENT/LCCollection.h>
 #include <EVENT/MCParticle.h>
@@ -24,6 +25,7 @@
 using namespace lcio ;
 using namespace marlin ;
 
+using std::vector;
 
 MPProcessor aMPProcessor ;
 
@@ -153,6 +155,9 @@ void MPProcessor::processEvent( LCEvent * evt ) {
     if( colpfo != NULL ){
         
         int nPFO = colpfo->getNumberOfElements()  ;
+        int nGAMMA = 0;
+        vector<float> vecPFO_gamma_e;
+        
         _data.npfos = nPFO;
         
         int icalhits = 0;
@@ -273,8 +278,8 @@ void MPProcessor::processEvent( LCEvent * evt ) {
             if(_data.pfo_chrg[i] == 0) isNotCharged = true;
             
             if(isNotCharged && isCalGamma){
-                _data.pfo_gamma_e[i] = _data.pfo_e[i];
-                
+                nGAMMA += 1;
+                vecPFO_gamma_e.push_back(_data.pfo_e[i]);
             }
             
             
@@ -293,6 +298,15 @@ void MPProcessor::processEvent( LCEvent * evt ) {
             
             
         } // end of PFO loop
+        
+        _data.ngammas = nGAMMA;
+        for(int gm=0; gm<nGAMMA; gm++){
+            _data.pfo_gamma_e[gm] = vecPFO_gamma_e[gm];
+        }
+        
+        
+        
+        
         
         _data.nclrhits = icalhits;
         
@@ -366,7 +380,8 @@ void MPProcessor::makeNTuple() {
     _evtdata->Branch( "pfo_lhcal_e"     , &d.pfo_lhcal_e     , "pfo_lhcal_e[npfos]"    );
     _evtdata->Branch( "pfo_bcal_e"      , &d.pfo_bcal_e      , "pfo_bcal_e[npfos]"     );
     
-    _evtdata->Branch( "pfo_gamma_e"      , &d.pfo_gamma_e      , "pfo_gamma_e[npfos]"     );
+    _evtdata->Branch( "ngammas"           , &d.ngammas           , "ngammas/I"         );
+    _evtdata->Branch( "pfo_gamma_e"      , &d.pfo_gamma_e      , "pfo_gamma_e[ngammas]"     );
     
     _evtdata->Branch( "nmcr"            , &d.nmcr            , "nmcr[npfos]/I"         );
     _evtdata->Branch( "mcr_weight"      , &d.mcr_weight      , "mcr_weight[npfos]"     );

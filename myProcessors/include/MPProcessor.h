@@ -12,6 +12,7 @@ class TTree;
 const int NMAX_PFOS   = 500;
 const int NMAX_MCPS   = 500;
 const int NMAX_CLRS   = 500;
+const int NMAX_GMMA   = 500;
 
 using namespace lcio ;
 using namespace marlin ;
@@ -118,19 +119,19 @@ protected:
         
         // Gamma
         int    ngammas ;
-        float  pfo_gamma_e[NMAX_PFOS];
-        float  pfo_gamma_px[NMAX_PFOS];
-        float  pfo_gamma_py[NMAX_PFOS];
-        float  pfo_gamma_pz[NMAX_PFOS];
-        float  pfo_gamma_phi[NMAX_PFOS];
-        float  pfo_gamma_theta[NMAX_PFOS];
+        float  pfo_gamma_e[NMAX_GMMA];
+        float  pfo_gamma_px[NMAX_GMMA];
+        float  pfo_gamma_py[NMAX_GMMA];
+        float  pfo_gamma_pz[NMAX_GMMA];
+        float  pfo_gamma_phi[NMAX_GMMA];
+        float  pfo_gamma_theta[NMAX_GMMA];
         
-        float  mcr_gamma_e[NMAX_PFOS];
-        float  mcr_gamma_px[NMAX_PFOS];
-        float  mcr_gamma_py[NMAX_PFOS];
-        float  mcr_gamma_pz[NMAX_PFOS];
-        float  mcr_gamma_phi[NMAX_PFOS];
-        float  mcr_gamma_theta[NMAX_PFOS];
+        float  mcr_gamma_e[NMAX_GMMA];
+        float  mcr_gamma_px[NMAX_GMMA];
+        float  mcr_gamma_py[NMAX_GMMA];
+        float  mcr_gamma_pz[NMAX_GMMA];
+        float  mcr_gamma_phi[NMAX_GMMA];
+        float  mcr_gamma_theta[NMAX_GMMA];
         
         // MC Relation
         int    nmcr[NMAX_PFOS];
