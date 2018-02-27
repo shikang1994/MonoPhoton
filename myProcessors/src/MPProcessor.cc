@@ -366,6 +366,8 @@ void MPProcessor::makeNTuple() {
     _evtdata->Branch( "pfo_lhcal_e"     , &d.pfo_lhcal_e     , "pfo_lhcal_e[npfos]"    );
     _evtdata->Branch( "pfo_bcal_e"      , &d.pfo_bcal_e      , "pfo_bcal_e[npfos]"     );
     
+    _evtdata->Branch( "pfo_gamma_e"      , &d.pfo_gamma_e      , "pfo_gamma_e[npfos]"     );
+    
     _evtdata->Branch( "nmcr"            , &d.nmcr            , "nmcr[npfos]/I"         );
     _evtdata->Branch( "mcr_weight"      , &d.mcr_weight      , "mcr_weight[npfos]"     );
     _evtdata->Branch( "mcr_e"           , &d.mcr_e           , "mcr_e[npfos]"          );
