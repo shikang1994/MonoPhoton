@@ -1,0 +1,3 @@
+/home/cs004/yuichi/working/MonoPhoton/myProcessors/lib/libmymarlin.so.0.1.0
+/home/cs004/yuichi/working/MonoPhoton/myProcessors/lib/libmymarlin.so.0.1
+/home/cs004/yuichi/working/MonoPhoton/myProcessors/lib/libmymarlin.so

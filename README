@@ -1,0 +1,26 @@
+Directory structure :
+1) myProcessor - This includes a set of source code of a test processor you can modify as you like.
+2) run - In this directory, you can execute your processor (e.g. myProcessor/MyProcessor.cc).
+
+How to run?
+1) source init_ilcsoft_MP.sh
+	--> This setup your environment.
+
+== compilation ==
+2) cd myProcessor
+3) rm -rf build (if already exist)
+4) mkdir build
+5) cd build
+6) cmake -C $ILCSOFT/ILCSoft.cmake ..
+7) make; make install
+
+== execution ==
+8) ../../run
+9) Marlin test.xml
+     --> This will create output.root file.
+10) root -l hit.C
+...
+
+
+
+ 
