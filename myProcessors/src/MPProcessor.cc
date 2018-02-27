@@ -156,7 +156,8 @@ void MPProcessor::processEvent( LCEvent * evt ) {
         
         int nPFO = colpfo->getNumberOfElements()  ;
         int nGAMMA = 0;
-        vector<float> vecPFO_gamma_e;
+        vector<float> vecPFO_gamma_e, vecPFO_gamma_px, vecPFO_gamma_py, vecPFO_gamma_pz, vecPFO_gamma_phi, vecPFO_gamma_theta;
+        vector<float> vecMCR_gamma_e, vecMCR_gamma_px, vecMCR_gamma_py, vecMCR_gamma_pz, vecMCR_gamma_phi, vecMCR_gamma_theta;
         
         _data.npfos = nPFO;
         
@@ -279,16 +280,22 @@ void MPProcessor::processEvent( LCEvent * evt ) {
             
             if(isNotCharged && isCalGamma){
                 nGAMMA += 1;
+                // gamma from pfo
                 vecPFO_gamma_e.push_back(_data.pfo_e[i]);
+                vecPFO_gamma_px.push_back(_data.pfo_px[i]);
+                vecPFO_gamma_py.push_back(_data.pfo_py[i]);
+                vecPFO_gamma_pz.push_back(_data.pfo_pz[i]);
+                vecPFO_gamma_phi.push_back(_data.pfo_phi[i]);
+                vecPFO_gamma_theta.push_back(_data.pfo_phi[i]);
+                
+                // gamma from mcr
+                vecMCR_gamma_e.push_back(_data.mcr_e[i]);
+                vecMCR_gamma_px.push_back(_data.mcr_px[i]);
+                vecMCR_gamma_py.push_back(_data.mcr_py[i]);
+                vecMCR_gamma_pz.push_back(_data.mcr_pz[i]);
+                vecMCR_gamma_phi.push_back(_data.mcr_phi[i]);
+                vecMCR_gamma_theta.push_back(_data.mcr_theta[i]);
             }
-            
-            
-            
-            
-            
-            
-            
-            
             
             //pid info
             if (pidvec.size()>0){
@@ -301,7 +308,21 @@ void MPProcessor::processEvent( LCEvent * evt ) {
         
         _data.ngammas = nGAMMA;
         for(int gm=0; gm<nGAMMA; gm++){
+            // gamma from pfo
             _data.pfo_gamma_e[gm] = vecPFO_gamma_e[gm];
+            _data.pfo_gamma_px[gm] = vecPFO_gamma_px[gm];
+            _data.pfo_gamma_py[gm] = vecPFO_gamma_py[gm];
+            _data.pfo_gamma_pz[gm] = vecPFO_gamma_pz[gm];
+            _data.pfo_gamma_phi[gm] = vecPFO_gamma_phi[gm];
+            _data.pfo_gamma_theta[gm] = vecPFO_gamma_theta[gm];
+            
+            // gamma from mcr
+            _data.mcr_gamma_e[gm] = vecMCR_gamma_e[gm];
+            _data.mcr_gamma_px[gm] = vecMCR_gamma_px[gm];
+            _data.mcr_gamma_py[gm] = vecMCR_gamma_py[gm];
+            _data.mcr_gamma_pz[gm] = vecMCR_gamma_pz[gm];
+            _data.mcr_gamma_phi[gm] = vecMCR_gamma_phi[gm];
+            _data.mcr_gamma_theta[gm] = vecMCR_gamma_theta[gm];
         }
         
         
@@ -380,8 +401,20 @@ void MPProcessor::makeNTuple() {
     _evtdata->Branch( "pfo_lhcal_e"     , &d.pfo_lhcal_e     , "pfo_lhcal_e[npfos]"    );
     _evtdata->Branch( "pfo_bcal_e"      , &d.pfo_bcal_e      , "pfo_bcal_e[npfos]"     );
     
-    _evtdata->Branch( "ngammas"           , &d.ngammas           , "ngammas/I"         );
-    _evtdata->Branch( "pfo_gamma_e"      , &d.pfo_gamma_e      , "pfo_gamma_e[ngammas]"     );
+    _evtdata->Branch( "ngammas"           , &d.ngammas       , "ngammas/I"            );
+    _evtdata->Branch( "pfo_gamma_e"      , &d.pfo_gamma_e    , "pfo_gamma_e[ngammas]"  );
+    _evtdata->Branch( "pfo_gamma_px"      , &d.pfo_gamma_px    , "pfo_gamma_px[ngammas]"  );
+    _evtdata->Branch( "pfo_gamma_py"      , &d.pfo_gamma_py    , "pfo_gamma_py[ngammas]"  );
+    _evtdata->Branch( "pfo_gamma_pz"      , &d.pfo_gamma_pz    , "pfo_gamma_pz[ngammas]"  );
+    _evtdata->Branch( "pfo_gamma_phi"      , &d.pfo_gamma_phi    , "pfo_gamma_phi[ngammas]"  );
+    _evtdata->Branch( "pfo_gamma_theta"      , &d.pfo_gamma_theta    , "pfo_gamma_theta[ngammas]"  );
+    
+    _evtdata->Branch( "mcr_gamma_e"      , &d.mcr_gamma_e    , "mcr_gamma_e[ngammas]"  );
+    _evtdata->Branch( "mcr_gamma_px"      , &d.mcr_gamma_px    , "mcr_gamma_px[ngammas]"  );
+    _evtdata->Branch( "mcr_gamma_py"      , &d.mcr_gamma_py    , "mcr_gamma_py[ngammas]"  );
+    _evtdata->Branch( "mcr_gamma_pz"      , &d.mcr_gamma_pz    , "mcr_gamma_pz[ngammas]"  );
+    _evtdata->Branch( "mcr_gamma_phi"      , &d.mcr_gamma_phi    , "mcr_gamma_phi[ngammas]"  );
+    _evtdata->Branch( "mcr_gamma_theta"      , &d.mcr_gamma_theta    , "mcr_gamma_theta[ngammas]"  );
     
     _evtdata->Branch( "nmcr"            , &d.nmcr            , "nmcr[npfos]/I"         );
     _evtdata->Branch( "mcr_weight"      , &d.mcr_weight      , "mcr_weight[npfos]"     );
