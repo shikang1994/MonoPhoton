@@ -132,6 +132,7 @@ protected:
         float  mcr_gamma_pz[NMAX_GMMA];
         float  mcr_gamma_phi[NMAX_GMMA];
         float  mcr_gamma_theta[NMAX_GMMA];
+        bool   mcr_gamma_iscreatedinsim[NMAX_GMMA];
         
         // MC Relation
         int    nmcr[NMAX_PFOS];

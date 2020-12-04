@@ -52,7 +52,7 @@ void DrawSlice(TTree* T = 0, TH1D* h1 = 0, TH1D* h2 = 0, TCanvas* c1=0, TCanvas*
   leg->AddEntry(h2,"Photons with E_{rm}/E_{mc}<0.7 created in generator","f"); 
   leg->Draw();
   stringstream fname;
-  fname << "$HOME/work/MonoPhoton/run/hists/MP/Erm_phi/phi_gamma.pdf" << ends;
+  fname << "$HOME/work/MonoPhoton/run/hist/MP/Erm_phi/phi_gamma.pdf" << ends;
   c1->Print(fname.str().data());
 
 

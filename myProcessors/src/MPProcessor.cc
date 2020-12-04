@@ -158,7 +158,9 @@ void MPProcessor::processEvent( LCEvent * evt ) {
         int nGAMMA = 0;
         vector<float> vecPFO_gamma_e, vecPFO_gamma_px, vecPFO_gamma_py, vecPFO_gamma_pz, vecPFO_gamma_phi, vecPFO_gamma_theta;
         vector<float> vecMCR_gamma_e, vecMCR_gamma_px, vecMCR_gamma_py, vecMCR_gamma_pz, vecMCR_gamma_phi, vecMCR_gamma_theta;
-        
+        vector<bool>  vecMCR_gamma_iscreatedinsim;
+
+
         _data.npfos = nPFO;
         
         int icalhits = 0;
@@ -295,6 +297,7 @@ void MPProcessor::processEvent( LCEvent * evt ) {
                 vecMCR_gamma_pz.push_back(_data.mcr_pz[i]);
                 vecMCR_gamma_phi.push_back(_data.mcr_phi[i]);
                 vecMCR_gamma_theta.push_back(_data.mcr_theta[i]);
+                vecMCR_gamma_iscreatedinsim.push_back(_data.mcr_iscreatedinsim[i]);
             }
             
             //pid info
@@ -323,6 +326,7 @@ void MPProcessor::processEvent( LCEvent * evt ) {
             _data.mcr_gamma_pz[gm] = vecMCR_gamma_pz[gm];
             _data.mcr_gamma_phi[gm] = vecMCR_gamma_phi[gm];
             _data.mcr_gamma_theta[gm] = vecMCR_gamma_theta[gm];
+            _data.mcr_gamma_iscreatedinsim[gm] = vecMCR_gamma_iscreatedinsim[gm];
         }
         
         
@@ -415,6 +419,7 @@ void MPProcessor::makeNTuple() {
     _evtdata->Branch( "mcr_gamma_pz"      , &d.mcr_gamma_pz    , "mcr_gamma_pz[ngammas]"  );
     _evtdata->Branch( "mcr_gamma_phi"      , &d.mcr_gamma_phi    , "mcr_gamma_phi[ngammas]"  );
     _evtdata->Branch( "mcr_gamma_theta"      , &d.mcr_gamma_theta    , "mcr_gamma_theta[ngammas]"  );
+    _evtdata->Branch( "mcr_gamma_iscreatedinsim"      , &d.mcr_gamma_iscreatedinsim    , "mcr_gamma_iscreatedinsim[ngammas]/O"  );
     
     _evtdata->Branch( "nmcr"            , &d.nmcr            , "nmcr[npfos]/I"         );
     _evtdata->Branch( "mcr_weight"      , &d.mcr_weight      , "mcr_weight[npfos]"     );

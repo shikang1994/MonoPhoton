@@ -23,13 +23,13 @@ void DrawSlice(float zstart = -3000., float zend = 3000., TTree* T = 0, TH2D* h 
   c->cd();
   h->Draw("COL");
   stringstream fname;
-  fname << "$HOME/work/MonoPhoton/run/hists/example/hit/slice_" << zstart << "_" << zend << ".pdf" << ends;
+  fname << "$HOME/work/MonoPhoton/run/hist/example/hit/slice_" << zstart << "_" << zend << ".pdf" << ends;
   c->Print(fname.str().data());
 }
 
 void hit ()
 {
-  TFile* fin = new TFile("$HOME/work/MonoPhoton/run/output.root");
+  TFile* fin = new TFile("$HOME/work/MonoPhoton/run/MP.root");
   TTree* data = static_cast<TTree*>(fin->Get("evtdata"));
 
   TH2D* h = new TH2D("h","",100,-1000,1000,100,-1000,1000);
