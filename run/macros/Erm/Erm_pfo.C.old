@@ -1,0 +1,67 @@
+#include "TROOT.h"
+#include "TFile.h"
+#include "TTree.h"
+#include "TBrowser.h"
+#include "TH2.h"
+#include "TRandom.h"
+#include "Riostream.h"
+#include <iostream>
+#include <math.h>
+
+float d_to_rad(float degree);
+
+void Erm_pfo(){
+
+	int   maxpfo = 500;
+	int   npfos;
+	float pfo_theta[maxpfo],mcr_theta[maxpfo];
+	float pfo_e[maxpfo],mcr_e[maxpfo];
+	float pfo_phi[maxpfo],mcr_phi[maxpfo];
+	bool  mcr_iscreatedinsim[maxpfo];
+
+	TFile *f    = new TFile("MP.root","READ");
+	TTree *tree = (TTree*)f->Get("evtdata");
+
+	int nEntry = tree->GetEntries();
+
+	//set branch address
+	tree->SetBranchAddress("npfos",          &npfos   );
+	tree->SetBranchAddress("pfo_theta",      pfo_theta);
+	tree->SetBranchAddress("mcr_theta",mcr_theta);
+	tree->SetBranchAddress("pfo_e",    pfo_e    );
+	tree->SetBranchAddress("mcr_e",    mcr_e    );
+	tree->SetBranchAddress("pfo_phi",  pfo_phi  );
+	tree->SetBranchAddress("mcr_phi",  mcr_phi  );
+	tree->SetBranchAddress("mcr_iscreatedinsim", mcr_iscreatedinsim );
+
+	// histograms
+	TH1F *Erc_hist    = new TH1F("erc_hist","E_{rc} from endcap to plug",100,0.,20.);
+	TH1F *Emc_hist    = new TH1F("emc_hist","E_{mc} from endcap to plug",100,0.,20.);
+	TH1F *Erm_hist    = new TH1F("erm_hist","E_{rc}/E_{mc} from endcap to plug",100,0.,3.);
+
+	//look at each gamma
+	for(int iEntry=0;iEntry<nEntry;iEntry++){
+
+		//obtain entry of single event
+		tree->GetEntry(iEntry);
+
+		for(int i=0;i<npfos;i++){
+
+			Erc_hist->Fill(pfo_e[i]);
+			Emc_hist->Fill(mcr_e[i]);
+			if(mcr_e[i]!=0) Erm_hist->Fill(pfo_e[i]/mcr_e[i]);
+
+		} // end of gammas
+
+	} // end of iEntry
+
+
+} // end of sqshape
+
+float d_to_rad(float degree){
+	float rad;
+	rad = degree*M_PI/180;
+	return rad;
+}
+
+
