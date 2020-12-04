@@ -1,25 +1,25 @@
 <marlin>
-	
+
 	<execute>
 		<processor name="MPProcessor"/>
 	</execute>
-	
+
 <!--/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM100GeV.n001_1.d_dst_u036.slcio
 -->
 	<global>
 		<parameter name="LCIOInputFiles">
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n001_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n003_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n004_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n005_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n006_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n008_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n009_1.d_dst_u036.slcio
-/home/cs004/yuichi/working/MonoPhoton/lcio_input/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n010_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n001_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n003_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n004_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n005_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n006_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n008_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n009_1.d_dst_u036.slcio
+/hsm/ilc/grid/storm/prod/ilc/mc-opt.dsk/ild/dst/calib/single_PDG22/ILD_l5_o1_v02_nobg/v01-19-05-p01/u036/rv01-19-05-p01.sv01-19-05.mILD_l5_o1_v02_nobg.Pmcparticles_PDG22_MOM010GeV_TH5to14.n010_1.d_dst_u036.slcio
 		</parameter>
 		<parameter name="GearXMLFile"> 
-/home/cs004/yuichi/working/MonoPhoton/lcgeo_current/gear_ILD_l5_v02.xml
-                </parameter>  
+/cvmfs/ilc.desy.de/sw/ILDConfig/v01-19-05-p01/StandardConfig/lcgeo_current/gear_ILD_l5_v02.xml
+		</parameter>  
 		<parameter name="MaxRecordNumber" value="0" />  
 		<parameter name="SkipNEvents" value="10000" />  
 		<parameter name="SupressCheck" value="false" />  
@@ -27,19 +27,19 @@
 	</global>
 
 	<!--<processor name="vtxtrackdbd" type="VertexTrackDBDProcessor">-->
-        <processor name="MPProcessor" type="MPProcessor">
-               <parameter name="InputMCParticleCollection" type="string" lcioInType="MCParticle">
-                 MCParticlesSkimmed
-               </parameter>
-               <parameter name="InputPFOCollection" type="string" lcioInType="ReconstructedParticle">
-                 PandoraPFOs 
-               </parameter>
-               <parameter name="InputMCTruthLinkCollection" type="string" lcioInType="LCRelation">
-                 RecoMCTruthLink
-               </parameter>
-               <parameter name="OutputRootFileName" type="string">
-                 MP.root
-               </parameter>
-        </processor>
+	<processor name="MPProcessor" type="MPProcessor">
+		<parameter name="InputMCParticleCollection" type="string" lcioInType="MCParticle">
+			MCParticlesSkimmed
+		</parameter>
+		<parameter name="InputPFOCollection" type="string" lcioInType="ReconstructedParticle">
+			PandoraPFOs 
+		</parameter>
+		<parameter name="InputMCTruthLinkCollection" type="string" lcioInType="LCRelation">
+			RecoMCTruthLink
+		</parameter>
+		<parameter name="OutputRootFileName" type="string">
+			MP.root
+		</parameter>
+	</processor>
 
 </marlin>
